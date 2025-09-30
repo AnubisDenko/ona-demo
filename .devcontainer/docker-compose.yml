@@ -1,0 +1,21 @@
+name: dev-database-app
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '..:/workspaces:cached'
+    command: sleep infinity
+    network_mode: 'service:db'
+  db:
+    image: "postgres:latest"
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+volumes:
+  postgres-data: null
