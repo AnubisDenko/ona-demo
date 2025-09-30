@@ -1,0 +1,23 @@
+{
+  "name": "Java/Kotlin Dev Container",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+//  "build": {
+//    "context": ".",
+//    "dockerfile": "Dockerfile"
+//  },
+  "customizations": {
+    "jetbrains": {
+      "plugins": [
+        "com.bruce.intellijplugin.RedisPlugin",
+        "com.mroche.JsonHelper"
+      ]
+    }
+  },
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "forwardPorts": [8080, 3000, 6379],
+  "remoteUser": "vscode"
+}

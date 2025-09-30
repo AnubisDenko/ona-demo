@@ -29,3 +29,5 @@ replay_pid*
 # Gradle cache and build directories
 .gradle/
 build/
+
+./.idea
